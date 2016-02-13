@@ -7,15 +7,15 @@
 / Another source code is given for it name ProTurbo.cpp but for best experice run it on windows xp or later and compile it    |
 / in GNU GCC only                                                                                                             |
 ------------------------------------------------------------------------------------------------------------------------------*/
-#include <iostream.h>
-#include <fstream.h>
+#include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <dir.h>
 #include <conio.h>
 #include <string.h>
 #include <process.h>
-//using namespace std;
+using namespace std;
 char Choice,word,Prog[20],wor[20];
 char text[1000];char FileName[20],DirName[20];
 void Help();
@@ -42,7 +42,7 @@ class EDIT : public File  {
 		void Search();
 }; // main Menu Bar for program
 void MenuBar()
-{    clrscr();
+{    system("cls");// system("clear") for linux
 	 cout<<"##################################EDiTOR#######################################";
 	 cout<<"\n[F]ile_________##______[E]dit________##_________[V]iew_____##_______[H]elp____|";
 	 cout<<"\n###############################################################################";
@@ -88,7 +88,7 @@ void Select()
      if(Choice=='R'||Choice=='r')
 	 {  cout<<endl<<"Enter :";
 	    cin>>Prog;
-	    system(Prog);
+	    system(Prog); 
 	    getch();
 	    reset();
 	 }
@@ -187,7 +187,7 @@ void File::New()
    void File::OpenFile()                                                      
    {
    	    MenuBar();
-   	    system("dir/p");
+   	    system("dir/p");//system("ls") for linux
    	    cout<<"\nEnter File Name from list or change directory :";
    	    cin>>FileName;
    	    ifstream f;
@@ -207,7 +207,7 @@ void File::New()
    	     cout<<"\nWant To See Files ? [y/n] :";
    	     Choice = getch();
    	     if(Choice=='y')
-   	     system("dir/p");
+   	     system("dir/p"); // system("ls") for linux
    	     cout<<"\nEnter File Name To Change :";
    	     cin>>FileName;
    	     cout<<"\nEnter New File Name       :";
@@ -246,7 +246,7 @@ void File::New()
    	MenuBar();
    	cout<<"\n Directories and files :";
    	cout<<endl;
-   	system("dir/p");
+   	system("dir/p"); // system("lis") for linux
    	getch();
    }
    void EDIT::Search()
